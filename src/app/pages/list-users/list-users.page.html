@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Users</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-item>
+    <ion-button color="primary" slot="start" (click)="prevPageData()">Prev</ion-button>
+    <ion-button color="primary" slot="end" (click)="nextPageData()">Next</ion-button>
+  </ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3" *ngFor="let item of userList">
+        <ion-card (click)="userDetails(item.id)">
+          <ion-card-header>
+            <ion-grid>
+              <ion-row>
+                <ion-col class="align-content-center">
+                  <ion-thumbnail>
+                    <ion-img [src]="item.avatar"></ion-img>
+                  </ion-thumbnail>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-header>
+        
+          <ion-card-content>
+            <ion-item lines="none"><ion-label class="ion-text-center">{{item.first_name}} {{item.last_name}}</ion-label></ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
