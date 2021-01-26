@@ -8,9 +8,17 @@
 </ion-header>
 
 <ion-content color="light">
-  <ion-item>
+  <ion-item lines="none">
     <ion-button color="primary" slot="start" (click)="prevPageData()">Prev</ion-button>
     <ion-button color="primary" slot="end" (click)="nextPageData()">Next</ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-label>Users</ion-label>
+    <ion-select placeholder="Select User" (ionChange)="userDetails($event)">
+      <ion-select-option *ngFor="let user of userList" [value]="user.id">
+        {{user.first_name+' '+user.last_name }}
+      </ion-select-option>
+    </ion-select>
   </ion-item>
   <ion-grid>
     <ion-row>

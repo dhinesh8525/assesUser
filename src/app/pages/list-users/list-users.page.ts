@@ -28,6 +28,8 @@ export class ListUsersPage implements OnInit {
   }
 
   userDetails(detailId: any){
+    if(detailId.detail && detailId.detail.value)
+      detailId=detailId.detail.value
     this.nav.navigateForward('detail-user',{ queryParams: {id: detailId}});
   }
 
