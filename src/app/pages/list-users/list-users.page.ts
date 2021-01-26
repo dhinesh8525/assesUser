@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { User } from 'src/app/interface/user';
 import { ApiService } from 'src/app/services/api.service';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-list-users',
@@ -22,7 +23,7 @@ export class ListUsersPage implements OnInit {
 
   getUsers(){
     this.apiService.getUserList(this.page).subscribe((data: any)=>{
-      this.userList = data.data;
+      this.userList = _.sortBy(data.data,'first_name');;
     })
   }
 
